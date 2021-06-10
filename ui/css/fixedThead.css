@@ -1,0 +1,17 @@
+.fixed-thead {
+    margin: 20px;
+    background-color: #2d5c7f44;
+    padding: 10px;
+    border-radius: 10px;
+}
+.fixed-thead table {width:100%; border-collapse:collapse;}
+.fixed-thead, .fixed-thead-head {position:relative; overflow:hidden;}
+
+.fixed-thead-head td {
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.fixed-thead-side, .fixed-thead-corner {position:absolute; left:0; overflow:hidden;}
+.fixed-thead-corner {top:0;}
+.fixed-thead-body {overflow:auto;}
