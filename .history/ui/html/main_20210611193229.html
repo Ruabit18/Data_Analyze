@@ -1,0 +1,96 @@
+<!--
+ * @Descripttion: 
+ * @Version: xxx
+ * @Author: WanJu
+ * @Date: 2021-05-31 16:19:36
+ * @LastEditors: WanJu
+ * @LastEditTime: 2021-06-11 17:30:53
+-->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>数据分析</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/fixedThead.css">
+        <link rel="stylesheet" href="../css/dorpdown.css">
+        <link rel="stylesheet" href="../css/main.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id='title'>Data Analyze</div>
+        <nav id='nav_main'>
+            <ul>
+                <li>
+                    <a href="#tab_1">导入数据</a>
+                </li>
+                <li onclick="filter_init()">
+                    <a href="#tab_2">数据分析</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="tabs">
+            <div class="tabs_cell" id="tab_1">
+                <input id='input_db_name'>
+                <input type="button" id='show_tables' onclick="load_db($('#input_db_name').val())" value="读取数据">
+                <div class="menu_db">
+                    <a>数据表：</a>
+                    <select id="select_tables" onchange="load_tables(value)">
+                    </select>
+                </div>
+                <table id="table_original_data"></table>
+            </div>
+            <div class="tabs_cell" id="tab_2">
+                <div id="div_filter">
+                    <a style="font-size:18px; margin-top:30px; color:#6bd0fc">筛选数据</a>
+                    <p class="line"></p>
+                    <div id="data_filter">
+                        <div id="features_filter">
+                        </div>
+                        <table id="table_features">
+                        </table>
+                    </div>
+                    <input type="button" id='paint_tables' onclick="filter_start()" value="筛选数据">
+                    <a style="font-size:18px; margin-top:30px; color:#6bd0fc">排序</a>
+                    <p class="line"></p>
+                    <div id="data_ordered">
+                        <select id="select_order">
+                        </select>
+                        <a class="radio" style="float: left;">
+                            <input type="radio" name="radio_order" checked value="asc">升序</a>
+                        <a class="radio">
+                            <input type="radio" name="radio_order" value="desc">降序</a>
+                    </div>
+                    <a style="font-size:18px; margin-top:30px; color:#6bd0fc;">选择数据
+                        <input type="checkbox" style="margin-left:50px;" onchange="select_all(checked)"><span style="font-size: 15px;"> 全选</span></a>
+                    <p class="line"></p>
+                    <div id="value_filter">
+                    </div>
+                    <a style="font-size:18px; margin-top:30px; color:#6bd0fc">分析函数</a>
+                    <p class="line"></p>
+                    <div id="func_filter">
+                    </div>
+                    <input type="button" id='paint_tables' onclick="show_charts()" value="绘制表格">
+                </div>
+                <div id="div_charts">
+                    <table id="table_filter_data"></table>
+                    <div id="div_all_charts"></div>
+                </div>
+            </div>
+        </div>
+        <script src="../js/libs/jquery-3.6.0.min.js"></script>
+        <script src="../js/libs/echarts.min.js" async defer></script>
+        <script src="../js/libs/fixedThead.js" async defer></script>
+        <script src="../js/charts.js" async defer></script>
+        <script src="../js/get_data.js" async defer></script>
+    </body>
+</html>

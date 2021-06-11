@@ -4,7 +4,11 @@ Version: xxx
 Author: WanJu
 Date: 2021-05-31 19:19:38
 LastEditors: WanJu
-LastEditTime: 2021-06-11 19:32:22
+<<<<<<< HEAD
+LastEditTime: 2021-06-11 16:56:02
+=======
+LastEditTime: 2021-06-10 10:39:29
+>>>>>>> b0def8ce0726975449d59d216678bdaedd005a44
 '''
 from flask import Flask, json, render_template, request, jsonify
 from flask_cors import CORS
