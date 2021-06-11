@@ -4,7 +4,7 @@
  * @Author: WanJu
  * @Date: 2021-06-11 15:49:31
  * @LastEditors: WanJu
- * @LastEditTime: 2021-06-11 19:26:36
+ * @LastEditTime: 2021-06-11 19:35:28
  */
 
 cur_db_name = ''
@@ -223,19 +223,6 @@ function show_charts(){
 }
 
 function paint_charts(data){
-    if (data.hasOwnProperty('corr_name') && 
-        data.hasOwnProperty('pearson') &&
-        data.hasOwnProperty('spearman')){
-            // 绘制相关性图表
-            console.log('spearman')
-            paint_bar(data.corr_name[0] + '的线性相关性',
-                    ['pearson', 'spearman'],
-                    data.corr_name.slice(1),
-                    [data.pearson, data.spearman],
-                    'h'
-                    )
-        }
-
     if (data.hasOwnProperty('original') && 
         data.hasOwnProperty('index')){
             // 绘制原始数据图表
@@ -247,6 +234,19 @@ function paint_charts(data){
                 original_data,
                 false
             )
+        }
+
+    if (data.hasOwnProperty('corr_name') && 
+        data.hasOwnProperty('pearson') &&
+        data.hasOwnProperty('spearman')){
+            // 绘制相关性图表
+            console.log('spearman')
+            paint_bar(data.corr_name[0] + '的线性相关性',
+                    ['pearson', 'spearman'],
+                    data.corr_name.slice(1),
+                    [data.pearson, data.spearman],
+                    'h'
+                    )
         }
 
     if (data.hasOwnProperty('mean')){
